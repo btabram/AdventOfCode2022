@@ -1,6 +1,16 @@
 package utils
 
-import "regexp"
+import (
+	"regexp"
+)
+
+// We don't expect any errors, treat them all as fatal.
+func CheckErr[T any](val T, err error) T {
+	if err != nil {
+		panic(err)
+	}
+	return val
+}
 
 // There's no built-in set type but we can use a map with bool values and always insert true.
 func Intersection[T comparable](a, b map[T]bool) map[T]bool {

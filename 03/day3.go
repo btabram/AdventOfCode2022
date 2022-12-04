@@ -18,12 +18,7 @@ func scoreItem(item rune) int {
 }
 
 func main() {
-	input, err := os.ReadFile("input.txt")
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-	lines := utils.Lines(string(input))
+	lines := utils.Lines(string(utils.CheckErr(os.ReadFile("input.txt"))))
 
 	errorItems := []rune{}
 	for _, line := range lines {

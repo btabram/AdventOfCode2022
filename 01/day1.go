@@ -10,20 +10,12 @@ import (
 )
 
 func main() {
-	input, err := os.ReadFile("input.txt")
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+	input := utils.CheckErr(os.ReadFile("input.txt"))
 
 	elfCalorieLists := [][]int{{}}
 	for _, line := range utils.Lines(string(input)) {
 		if line != "" {
-			val, err := strconv.Atoi(line)
-			if err != nil {
-				fmt.Println(err)
-				os.Exit(1)
-			}
+			val := utils.CheckErr(strconv.Atoi(line))
 			currentList := &elfCalorieLists[len(elfCalorieLists)-1]
 			*currentList = append(*currentList, val)
 		} else {
