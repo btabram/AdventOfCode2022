@@ -2,6 +2,17 @@ package utils
 
 import "regexp"
 
+// There's no built-in set type but we can use a map with bool values and always insert true.
+func Intersection[T comparable](a, b map[T]bool) map[T]bool {
+	intersection := make(map[T]bool)
+	for val := range a {
+		if b[val] {
+			intersection[val] = true
+		}
+	}
+	return intersection
+}
+
 func Lines(str string) []string {
 	// Use a regex to make this work for both Windows and Unix line endings.
 	return regexp.MustCompile("\r?\n").Split(str, -1)
