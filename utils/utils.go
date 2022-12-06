@@ -28,6 +28,15 @@ func Lines(str string) []string {
 	return regexp.MustCompile("\r?\n").Split(str, -1)
 }
 
+func SplitAt[T comparable](slice []T, splitAt T) ([]T, []T) {
+	for i, item := range slice {
+		if item == splitAt {
+			return slice[:i], slice[i+1:]
+		}
+	}
+	return slice, nil
+}
+
 func Sum(slice []int) int {
 	sum := 0
 	for _, item := range slice {
