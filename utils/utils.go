@@ -37,12 +37,29 @@ func SplitAt[T comparable](slice []T, splitAt T) ([]T, []T) {
 	return slice, nil
 }
 
-func Sum(slice []int) int {
-	sum := 0
-	for _, item := range slice {
-		sum += item
+func Reduce[T any](slice []T, reducer func(T, T) T) T {
+	switch len(slice) {
+	case 0:
+		panic("Can't reduce an empty slice")
+	case 1:
+		return slice[0]
+	case 2:
+		return reducer(slice[0], slice[1])
+	default:
+		reduction := reducer(slice[0], slice[1])
+		for _, item := range slice[2:] {
+			reduction = reducer(reduction, item)
+		}
+		return reduction
 	}
-	return sum
+}
+
+func Product(slice []int) int {
+	return Reduce(slice, func(a, b int) int { return a * b })
+}
+
+func Sum(slice []int) int {
+	return Reduce(slice, func(a, b int) int { return a + b })
 }
 
 func Transform[A, B any](slice []A, transformFn func(A) B) []B {
