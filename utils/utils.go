@@ -4,6 +4,13 @@ import (
 	"regexp"
 )
 
+func Abs(a int) int {
+	if a < 0 {
+		return -a
+	}
+	return a
+}
+
 // We don't expect any errors, treat them all as fatal.
 func CheckErr[T any](val T, err error) T {
 	if err != nil {
