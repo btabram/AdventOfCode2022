@@ -11,6 +11,13 @@ func Abs(a int) int {
 	return a
 }
 
+func Min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
 // We don't expect any errors, treat them all as fatal.
 func CheckErr[T any](val T, err error) T {
 	if err != nil {
