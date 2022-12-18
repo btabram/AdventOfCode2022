@@ -66,5 +66,5 @@ func main() {
 		func(c Coord) map[Coord]int { return getNeighbours(c, isValidMovePart2) })
 
 	fmt.Printf("The answer to Part 1 is %v.\n", part1)
-	fmt.Printf("The answer to Part 1 is %v.\n", part2)
+	fmt.Printf("The answer to Part 2 is %v.\n", part2)
 }

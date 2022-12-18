@@ -127,5 +127,5 @@ func main() {
 	part2 := calculateMonkeyBusiness()
 
 	fmt.Printf("The answer to Part 1 is %v.\n", part1)
-	fmt.Printf("The answer to Part 1 is %v.\n", part2)
+	fmt.Printf("The answer to Part 2 is %v.\n", part2)
 }
