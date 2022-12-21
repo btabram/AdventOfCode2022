@@ -196,7 +196,7 @@ func findPeriodicity(input string) (int, int) {
 }
 
 func main() {
-	input := utils.Lines(string(utils.CheckErr(os.ReadFile("input.txt"))))[0]
+	input := string(utils.CheckErr(os.ReadFile("input.txt")))
 
 	part1 := getTowerHeightAfterNRocks(input, 2022)
 
